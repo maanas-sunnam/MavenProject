@@ -1,22 +1,22 @@
 node {
 
     stage('Clone Repository') {
-        git url: 'https://github.com/maanas-sunnam/MavenProject.git'
+        git branch: 'main', url: 'https://github.com/maanas-sunnam/MavenProject.git'
     }
 
     stage('Clean') {
-        bat "mvn clean -f MavenProject/pom.xml"
+        bat "mvn clean -f pom.xml"
     }
 
     stage('Build') {
-        bat "mvn install -f MavenProject/pom.xml"
+        bat "mvn install -f pom.xml"
     }
 
     stage('Test') {
-        bat "mvn test -f MavenProject/pom.xml"
+        bat "mvn test -f pom.xml"
     }
 
     stage('Package') {
-        bat "mvn package -f MavenProject/pom.xml"
+        bat "mvn package -f pom.xml"
     }
 }
